@@ -11,14 +11,14 @@
     const[questionId, setQuestionId] = useState([])
     const[show, setShow] = useState(false)
     const [start, setStart] = useState(false)
-    // console.log(answers)
-    function on(){
-        setShow(true)
-    }
-    function off(){
-        setStart(false)
-        setShow(false)
-    }
+   
+            function on(){
+               return answers.length === 5 ? setShow(true) : setShow(false)
+            }
+            function off(){
+                setStart(false)
+                setShow(false)
+            }
             function handleChange(e){
 
                 setInput(e.target.value)
@@ -28,7 +28,7 @@
              }
             
 
-                 const submit = async (e) => {
+                   const submit = async (e) => {
                     
                        e.preventDefault();
                        try{
@@ -41,22 +41,22 @@
                              ))
                      setQuiz(prev => updated)
                      setStart(true)
-                       }catch(er){
-                         console.log(er)
+                       }catch(err){
+                         console.log(err)
                      }
       }
             
 
-            function addToAnswers(answer, id){
-                     setQuestionId(prev => [...prev, id])
-                    if(!answers.includes(answer) && !questionId.includes(id)){
+                   function addToAnswers(answer, id){
+                            setQuestionId(prev => [...prev, id])
+                           if(!answers.includes(answer) && !questionId.includes(id)){
 
-                    setAnswers(prev => [...prev, answer])
+                           setAnswers(prev => [...prev, answer])
 
-                        }
-                     
-            
-            }
+                               }
+
+
+                   }
 
 
 
