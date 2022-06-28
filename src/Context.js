@@ -11,6 +11,7 @@
     const[questionId, setQuestionId] = useState([])
     const[show, setShow] = useState(false)
     const [start, setStart] = useState(false)
+     const [count, setCount] = useState(0)
    
             function on(){
                return answers.length === 5 ? setShow(true) : setShow(false)
@@ -18,6 +19,7 @@
             function off(){
                 setStart(false)
                 setShow(false)
+                setCount(0)
             }
             function handleChange(e){
 
@@ -48,6 +50,7 @@
             
 
                    function addToAnswers(answer, id){
+                            setCount(prev => prev +1)
                             setQuestionId(prev => [...prev, id])
                            if(!answers.includes(answer) && !questionId.includes(id)){
 
@@ -63,16 +66,17 @@
 
     return(
         <Context.Provider value={{
-            input,
-             handleChange,
-             submit,
-             quiz, 
-             answers,
-             addToAnswers,
-             show,
-             on, 
-             start,
-             off
+             input,
+              handleChange,
+              submit,
+              quiz, 
+              answers,
+              addToAnswers,
+              show,
+              on, 
+              start,
+              off,
+             count
           
              
         }}>
