@@ -3,12 +3,12 @@ import { nanoid } from 'nanoid'
 import { Context } from "./Context";
 var he = require('he');
 export default function Quiz(){
-    const{quiz, addToAnswers, answers,show, on, off} = useContext(Context)
+    const{quiz, addToAnswers, answers,show, on, off, count} = useContext(Context)
    
 
     return(
         <div key={nanoid()}>
-   
+         <progress value={count} max={5}></progress> 
             <div>
             {
                 quiz.map(q =>(
